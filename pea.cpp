@@ -36,6 +36,23 @@ void Pea::advance(int phase)
     {
         Zombie *zombie = qgraphicsitem_cast<Zombie *>(items[rand() % items.size()]);
         zombie->hp -= atk;
+
+        // 创建一个颜色效果
+        QGraphicsColorizeEffect *effect = new QGraphicsColorizeEffect;
+        QColor hit(255,0,0,100);
+        effect->setColor(hit);
+        zombie->setGraphicsEffect(effect);
+
+        // 设置一个定时器，在一段时间后停止颜色效果
+        QTimer *timer = new QTimer;
+        timer->setSingleShot(true);
+        timer->setInterval(500); // 500毫秒（0.5秒）后停止效果
+        QObject::connect(timer, &QTimer::timeout, [=]() {
+            effect->setEnabled(false); // 停止颜色效果
+            delete timer; // 删除定时器
+        });
+        timer->start();
+
         if (snow && zombie->speed > 0.55)
             zombie->speed /= 2;
         delete this;
