@@ -1,7 +1,8 @@
 #include "button.h"
 
-Button::Button(QTimer *t)
+Button::Button(QMediaPlayer *s, QTimer *t)
 {
+    sound = s;
     timer = t;
 }
 
@@ -30,10 +31,12 @@ void Button::mousePressEvent(QGraphicsSceneMouseEvent *event)
     {
         if (timer->isActive())
         {
+            sound->stop();
             timer->stop();
         }
         else
         {
+            sound->play();
             timer->start();
         }
     }

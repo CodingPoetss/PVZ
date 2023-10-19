@@ -3,6 +3,30 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     srand(uint(QTime(0,0,0).secsTo(QTime::currentTime())));
+
+    // 创建一个 QMediaPlayer 对象
+    QMediaPlayer* sound = new QMediaPlayer(this);
+    QAudioOutput* audioOutput = new QAudioOutput(this);
+    sound->setAudioOutput(audioOutput);
+
+    // 设置音频文件的路径（如果位于资源文件中，请使用"qrc:"前缀）
+    sound->setSource(QUrl::fromLocalFile("D:/MyRepositories/Qt/PVZ-eb5aee6b2a2412c9e92fa2dd97e4ba2f4a5652b9/PVZ-eb5aee6b2a2412c9e92fa2dd97e4ba2f4a5652b9/images/Grazy Dave.wav"));
+
+    // 设置音量
+    //player->setVolume(50); // 0-100，100 表示最大音量
+
+    // 播放音频
+    sound->play();
+
+    // 连接信号槽以实现循环播放
+    connect(sound, &QMediaPlayer::mediaStatusChanged, [=](QMediaPlayer::MediaStatus status) {
+        if (status == QMediaPlayer::EndOfMedia) {
+            sound->setPosition(0); // 将播放位置重置为开始
+            sound->play();
+        }
+    });
+
+
     timer = new QTimer;
     scene = new QGraphicsScene(this);
     scene->setSceneRect(150, 0, 900, 600);
@@ -13,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     Shovel *shovel = new Shovel;
     shovel->setPos(830, 40);
     scene->addItem(shovel);
-    Button *button = new Button(timer);
+    Button *button = new Button(sound, timer);
     button->setPos(970, 20);
     scene->addItem(button);
     Map *map = new Map;
@@ -34,12 +58,14 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     connect(timer, &QTimer::timeout, scene, &QGraphicsScene::advance);
     connect(timer, &QTimer::timeout, this, &MainWindow::addZombie);
     connect(timer, &QTimer::timeout, this, &MainWindow::check);
+    sound->play();
     timer->start(33);
     view->show();
 }
 
 MainWindow::~MainWindow()
 {
+    delete sound;
     delete timer;
     delete scene;
     delete view;
