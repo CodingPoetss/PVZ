@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QGraphicsView>
-#include <QSound>
 #include <QTimer>
 #include "shop.h"
 #include "card.h"
@@ -27,7 +26,6 @@ public:
     void addZombie();
     void check();
 private:
-    QSound *sound;
     QTimer *timer;
     QGraphicsScene *scene;
     QGraphicsView *view;
