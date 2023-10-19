@@ -2,9 +2,7 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
-    qsrand(uint(QTime(0,0,0).secsTo(QTime::currentTime())));
-    sound = new QSound("Grazy Dave.wav");
-    sound->setLoops(QSound::Infinite);
+    srand(uint(QTime(0,0,0).secsTo(QTime::currentTime())));
     timer = new QTimer;
     scene = new QGraphicsScene(this);
     scene->setSceneRect(150, 0, 900, 600);
@@ -15,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     Shovel *shovel = new Shovel;
     shovel->setPos(830, 40);
     scene->addItem(shovel);
-    Button *button = new Button(sound, timer);
+    Button *button = new Button( timer);
     button->setPos(970, 20);
     scene->addItem(button);
     Map *map = new Map;
@@ -36,14 +34,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     connect(timer, &QTimer::timeout, scene, &QGraphicsScene::advance);
     connect(timer, &QTimer::timeout, this, &MainWindow::addZombie);
     connect(timer, &QTimer::timeout, this, &MainWindow::check);
-    sound->play();
     timer->start(33);
     view->show();
 }
 
 MainWindow::~MainWindow()
 {
-    delete sound;
+
     delete timer;
     delete scene;
     delete view;
@@ -64,9 +61,9 @@ void MainWindow::addZombie()
             high *= 2;
         }
         counter = 0;
-        time = qrand() % (2 * maxtime / 3) + maxtime / 3;
-        int type = qrand() % 100;
-        int i = qrand() % 5;
+        time = rand() % (2 * maxtime / 3) + maxtime / 3;
+        int type = rand() % 100;
+        int i = rand() % 5;
         Zombie *zombie;
         if (type < 40)
             zombie = new BasicZombie;
