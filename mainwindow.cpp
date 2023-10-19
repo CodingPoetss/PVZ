@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     Shovel *shovel = new Shovel;
     shovel->setPos(830, 40);
     scene->addItem(shovel);
-    Button *button = new Button( timer);
+    Button *button = new Button(timer);
     button->setPos(970, 20);
     scene->addItem(button);
     Map *map = new Map;
@@ -40,7 +40,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 MainWindow::~MainWindow()
 {
-
     delete timer;
     delete scene;
     delete view;

@@ -30,12 +30,10 @@ void Button::mousePressEvent(QGraphicsSceneMouseEvent *event)
     {
         if (timer->isActive())
         {
-
             timer->stop();
         }
         else
         {
-
             timer->start();
         }
     }
