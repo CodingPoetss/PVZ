@@ -11,6 +11,7 @@ class Zombie : public QGraphicsItem
 public:
     int hp;
     int atk;
+    // state{Eating: 0, Walking: 1, Dead: 2, Freezed: 3}
     int state;
     qreal speed;
     enum { Type = UserType + 2};

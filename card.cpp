@@ -30,8 +30,13 @@ void Card::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     font.setPointSizeF(15);
     painter->setFont(font);
     painter->drawText(-30, 60, QString("%1").arg(cost[map[text]], 3, 10, QChar('0')));
-    if (counter < cool[map[text]])
+    Shop *shop = qgraphicsitem_cast<Shop *>(parentItem());
+    if (cost[map[text]] > shop->sun)
     {
+        QBrush brush(QColor(0, 0, 0, 200));
+        painter->setBrush(brush);
+        painter->drawRect(QRectF(-48, -68, 98, 135));
+    }else if (counter < cool[map[text]]){
         QBrush brush(QColor(0, 0, 0, 200));
         painter->setBrush(brush);
         painter->drawRect(QRectF(-48, -68, 98, 132 * (1 - qreal(counter) / cool[map[text]])));
