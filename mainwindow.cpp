@@ -10,13 +10,15 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     sound->setAudioOutput(audioOutput);
 
     // 设置音频文件的路径（如果位于资源文件中，请使用"qrc:"前缀）
-    sound->setSource(QUrl::fromLocalFile("D:/MyRepositories/Qt/PVZ-eb5aee6b2a2412c9e92fa2dd97e4ba2f4a5652b9/PVZ-eb5aee6b2a2412c9e92fa2dd97e4ba2f4a5652b9/images/Grazy Dave.wav"));
+    // sound->setSource(QUrl::fromLocalFile("D:/MyRepositories/Qt/PVZ-eb5aee6b2a2412c9e92fa2dd97e4ba2f4a5652b9/PVZ-eb5aee6b2a2412c9e92fa2dd97e4ba2f4a5652b9/images/Grazy Dave.wav"));
+    sound->setSource(QUrl::fromLocalFile("qrc:/music/Grazy Dave.wav"));
 
     // 设置音量
     //player->setVolume(50); // 0-100，100 表示最大音量
+    sound->
 
     // 播放音频
-    sound->play();
+    //sound->play();
 
     // 连接信号槽以实现循环播放
     connect(sound, &QMediaPlayer::mediaStatusChanged, [=](QMediaPlayer::MediaStatus status) {
