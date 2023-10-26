@@ -46,5 +46,7 @@
         <file>images/ScreenZombieWalk.gif</file>
         <file>images/ZombiesWon.png</file>
         <file>images/Background_dark.jpg</file>
+        <file>images/BasketBall .png</file>
+        <file>images/BasketBallSnow.png</file>
     </qresource>
 </RCC>
