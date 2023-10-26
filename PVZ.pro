@@ -92,5 +92,5 @@ RESOURCES += \
 RC_ICONS += \
     PVZ.ico
 
-DISTFILES += \
-    music/Grazy Dave.mp3
+DISTFILES +=
+    music/Grazy Dave.wav

@@ -17,7 +17,7 @@ void Pea::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidg
 {
     Q_UNUSED(option)
     Q_UNUSED(widget)
-    painter->drawPixmap(QRect(-12, -28, 24, 24), QPixmap(snow ? ":/images/PeaSnow.png" : ":/images/Pea.png"));
+    painter->drawPixmap(QRect(-12, -28, 24, 24), QPixmap(snow ? ":/images/BasketBallSnow.png" : ":/images/BasketBall .png"));
 }
 
 bool Pea::collidesWithItem(const QGraphicsItem *other, Qt::ItemSelectionMode mode) const
