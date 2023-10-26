@@ -3,6 +3,8 @@
 
 #include <QGraphicsScene>
 #include <QGraphicsItem>
+#include <QMediaPlayer>
+#include <QAudioOutput>
 #include <QPainter>
 #include <QMovie>
 

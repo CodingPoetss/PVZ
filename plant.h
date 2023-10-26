@@ -2,6 +2,8 @@
 #define PLANT_H
 
 #include <QGraphicsScene>
+#include <QMediaPlayer>
+#include <QAudioOutput>
 #include <QGraphicsItem>
 #include <QPainter>
 #include <QMovie>
