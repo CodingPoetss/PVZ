@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>music/Grazy Dave.mp3</file>
+    </qresource>
+</RCC>

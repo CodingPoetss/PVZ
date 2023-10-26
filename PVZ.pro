@@ -86,7 +86,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    images.qrc
+    images.qrc \
+    music.qrc
 
 RC_ICONS += \
     PVZ.ico
+
+DISTFILES += \
+    music/Grazy Dave.mp3
