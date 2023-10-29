@@ -5,7 +5,7 @@ BucketZombie::BucketZombie()
     hp = 1370;
     atk = 100 * 33 / 1000;
     speed = 80.0 * 33 / 1000 / 4.7;
-    setMovie(":/images/BucketZombieWalk.gif");
+    setMovie(":/images/Xiucai.gif");
 }
 
 void BucketZombie::advance(int phase)
@@ -33,14 +33,14 @@ void BucketZombie::advance(int phase)
         if (state != 1)
         {
             state = 1;
-            setMovie(":/images/BucketZombieAttack.gif");
+            setMovie(":/images/XiucaiEat.gif");
         }
         return;
     }
     if (state)
     {
         state = 0;
-        setMovie(":/images/BucketZombieWalk.gif");
+        setMovie(":/images/Xiucai.gif");
     }
     setX(x() - speed);
 }

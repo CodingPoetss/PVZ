@@ -6,6 +6,9 @@ Pea::Pea(int attack, bool flag)
     snow = flag;
     atk = attack;
     speed = 360.0 * 33 / 1000;
+
+    gif = new QMovie(snow ? ":/images/basketballsnow.gif" : ":/images/basketball.gif");
+    gif->start();
 }
 
 QRectF Pea::boundingRect() const
@@ -17,7 +20,15 @@ void Pea::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidg
 {
     Q_UNUSED(option)
     Q_UNUSED(widget)
-    painter->drawPixmap(QRect(-12, -28, 24, 24), QPixmap(snow ? ":/images/BasketBallSnow.png" : ":/images/BasketBall .png"));
+    // 创建一个QMovie对象并设置GIF图像的路径
+    //QMovie movie(snow ? ":/images/basketballsnow.gif" : ":/images/basketball.gif");
+
+    // 获取GIF图像的帧
+    QPixmap frame = gif->currentPixmap();
+
+    // 绘制帧到指定位置
+    painter->drawPixmap(QRect(-12, -28, 24, 24), frame);
+    //painter->drawPixmap(QRect(-12, -28, 24, 24), QPixmap(snow ? ":/images/BasketBallSnow.png" : ":/images/BasketBall .png"));
 }
 
 bool Pea::collidesWithItem(const QGraphicsItem *other, Qt::ItemSelectionMode mode) const
