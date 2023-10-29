@@ -27,6 +27,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    blastpea.cpp \
         main.cpp \
     sunflower.cpp \
     zombie.cpp \
@@ -54,6 +55,7 @@ SOURCES += \
     screenzombie.cpp
 
 HEADERS += \
+    blastpea.h \
     sunflower.h \
     zombie.h \
     plant.h \

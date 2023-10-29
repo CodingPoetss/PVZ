@@ -5,7 +5,7 @@ FootballZombie::FootballZombie()
     hp = 1670;
     atk = 100 * 33 / 1000;
     speed = 80.0 * 33 / 1000 / 2.5;
-    setMovie(":/images/FootballZombieWalk.gif");
+    setMovie(":/images/Walter.gif");
 }
 
 void FootballZombie::advance(int phase)
@@ -37,15 +37,17 @@ void FootballZombie::advance(int phase)
             sound->setLoops(100);
             sound->play();
             state = 1;
-            setMovie(":/images/FootballZombieAttack.gif");
+            setMovie(":/images/Walter.gif");
         }
         return;
     }
     if (state)
     {
         state = 0;
-        setMovie(":/images/FootballZombieWalk.gif");
+
+        setMovie(":/images/Walter.gif");
         sound->pause();
+
     }
     setX(x() - speed);
 }

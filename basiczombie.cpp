@@ -5,10 +5,8 @@ BasicZombie::BasicZombie()
     hp = 270;
     atk = 100 * 33 / 1000;
     speed = 80.0 * 33 / 1000 / 4.7;
-    if (rand() % 2)
-        setMovie(":/images/ZombieWalk1.gif");
-    else
-        setMovie(":/images/ZombieWalk2.gif");
+    setMovie(":/images/kunkun1.gif");
+
 }
 
 void BasicZombie::advance(int phase)
@@ -39,18 +37,18 @@ void BasicZombie::advance(int phase)
             sound->setLoops(100);
             sound->play();
             state = 1;
-            setMovie(":/images/ZombieAttack.gif");
+            setMovie(":/images/kunkun2.gif");
         }
         return;
     }
     if (state)
     {
         state = 0;
-        if (rand() % 2)
-            setMovie(":/images/ZombieWalk1.gif");
-        else
-            setMovie(":/images/ZombieWalk2.gif");
+        
+
+        setMovie(":/images/kunkun1.gif");
         sound->pause();
+
     }
     setX(x() - speed);
 
