@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     //player->setVolume(50); // 0-100，100 表示最大音量
 
     // 播放音频
-    //sound->play();
+    sound->play();
 
     // 连接信号槽以实现循环播放
     connect(sound, &QMediaPlayer::mediaStatusChanged, [=](QMediaPlayer::MediaStatus status) {
@@ -52,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     view = new QGraphicsView(scene, this);
     view->resize(902, 602);
     view->setRenderHint(QPainter::Antialiasing);
-    view->setBackgroundBrush(QPixmap(":/images/Background.jpg"));
+    view->setBackgroundBrush(QPixmap(":/images/FutureBackground.jpg"));
     view->setCacheMode(QGraphicsView::CacheBackground);
     view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
     connect(timer, &QTimer::timeout, scene, &QGraphicsScene::advance);

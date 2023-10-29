@@ -5,7 +5,7 @@ ConeZombie::ConeZombie()
     hp = 640;
     atk = 100 * 33 / 1000;
     speed = 80.0 * 33 / 1000 / 4.7;
-    setMovie(":/images/ConeZombieWalk.gif");
+    setMovie(":/images/BigPowerKing.gif");
 }
 
 void ConeZombie::advance(int phase)
@@ -33,14 +33,14 @@ void ConeZombie::advance(int phase)
         if (state != 1)
         {
             state = 1;
-            setMovie(":/images/ConeZombieAttack.gif");
+            setMovie(":/images/BigPowerKingEat.gif");
         }
         return;
     }
     if (state)
     {
         state = 0;
-        setMovie(":/images/ConeZombieWalk.gif");
+        setMovie(":/images/BigPowerKing.gif");
     }
     setX(x() - speed);
 }

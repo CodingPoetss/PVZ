@@ -8,7 +8,7 @@ Sun::Sun()
     speed = 60.0 * 50 / 1000;
     counter = 0;
     time = int(10.0 * 1000 / 33);
-    movie = new QMovie(":/images/Sun.gif");
+    movie = new QMovie(":/images/opstone.gif");
     movie->start();
     setAcceptedMouseButtons(Qt::LeftButton);
 }
@@ -20,7 +20,7 @@ Sun::Sun(QPointF pos)
     speed = 60 * 50 / 1000;
     counter = 0;
     time = int(10.0 * 1000 / 33);
-    movie = new QMovie(":/images/Sun.gif");
+    movie = new QMovie(":/images/opstone.gif");
     movie->start();
     setAcceptedMouseButtons(Qt::LeftButton);
 }

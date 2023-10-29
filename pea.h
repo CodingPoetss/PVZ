@@ -15,6 +15,7 @@ private:
     bool snow;
     int atk;
     qreal speed;
+    QMovie* gif;
 };
 
 #endif // PEA_H

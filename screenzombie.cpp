@@ -5,7 +5,7 @@ ScreenZombie::ScreenZombie()
     hp = 1370;
     atk = 100 * 33 / 1000;
     speed = 80.0 * 33 / 1000 / 4.7;
-    setMovie(":/images/ScreenZombieWalk.gif");
+    setMovie(":/images/Menjiang.gif");
 }
 
 void ScreenZombie::advance(int phase)
@@ -33,14 +33,14 @@ void ScreenZombie::advance(int phase)
         if (state != 1)
         {
             state = 1;
-            setMovie(":/images/ScreenZombieAttack.gif");
+            setMovie(":/images/Menjiang.gif");
         }
         return;
     }
     if (state)
     {
         state = 0;
-        setMovie(":/images/ScreenZombieWalk.gif");
+        setMovie(":/images/Menjiang.gif");
     }
     setX(x() - speed);
 }
