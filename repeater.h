@@ -3,7 +3,7 @@
 
 #include "plant.h"
 #include "zombie.h"
-#include "pea.h"
+#include "blastpea.h".h"
 
 class Repeater : public Plant
 {
