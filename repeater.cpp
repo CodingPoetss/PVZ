@@ -4,7 +4,7 @@ Repeater::Repeater()
 {
     atk = 25;
     hp = 300;
-    time = int(1.4 * 1000 / 33);
+    time = int(2.5 * 1000 / 33);
     setMovie(":/images/Repeater.gif");
 }
 
@@ -21,14 +21,10 @@ void Repeater::advance(int phase)
         QList<QGraphicsItem *> items = collidingItems();
         if (!collidingItems().isEmpty())
         {
-            Pea *pea = new Pea(atk);
-            pea->setX(x() + 32);
-            pea->setY(y());
-            scene()->addItem(pea);
-            pea = new Pea(atk);
-            pea->setX(x() + 64);
-            pea->setY(y());
-            scene()->addItem(pea);
+            BlastPea *blastpea = new BlastPea(atk);
+            blastpea->setX(x() + 32);
+            blastpea->setY(y());
+            scene()->addItem(blastpea);
             return;
         }
     }
