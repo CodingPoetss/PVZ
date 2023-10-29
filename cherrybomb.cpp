@@ -26,9 +26,6 @@ void CherryBomb::advance(int phase)
         setMovie(":/images/Boom.gif");
 
         // 创建一个 QMediaPlayer 对象
-        QMediaPlayer* sound = new QMediaPlayer();
-        QAudioOutput* audioOutput = new QAudioOutput();
-        sound->setAudioOutput(audioOutput);
         sound->setSource(QUrl::fromLocalFile("qrc:/music/cherrybomb.mp3"));
         sound->play();
 

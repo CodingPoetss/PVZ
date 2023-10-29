@@ -7,6 +7,9 @@ class Pea : public Other
 {
 public:
     Pea(int attack = 0, bool flag = false);
+    ~Pea();
+    QMediaPlayer* sound = new QMediaPlayer();
+    QAudioOutput* audioOutput = new QAudioOutput();
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     bool collidesWithItem(const QGraphicsItem *other, Qt::ItemSelectionMode mode) const override;

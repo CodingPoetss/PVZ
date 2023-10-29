@@ -65,6 +65,10 @@ void Pea::advance(int phase)
         });
         timer->start();
 
+        sound->setAudioOutput(audioOutput);
+        sound->setSource(QUrl::fromLocalFile("qrc:/music/splat1.mp3"));
+        sound->play();
+
         if (snow && zombie->speed > 0.55)
             zombie->speed /= 2;
         delete this;
@@ -73,4 +77,9 @@ void Pea::advance(int phase)
     setX(x() + speed);
     if (x() > 1069)
         delete this;
+}
+
+Pea::~Pea(){
+    delete sound;
+    delete audioOutput;
 }

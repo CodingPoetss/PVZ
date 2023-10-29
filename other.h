@@ -4,6 +4,8 @@
 #include <QGraphicsItem>
 #include <QtWidgets>
 #include <QPainter>
+#include <QMediaPlayer>
+#include <QAudioOutput>
 
 class Other : public QGraphicsItem
 {
