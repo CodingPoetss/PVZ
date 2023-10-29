@@ -35,6 +35,9 @@ void BasicZombie::advance(int phase)
         plant->hp -= atk;
         if (state != 1)
         {
+            sound->setSource(QUrl::fromLocalFile("qrc:/music/chomp.mp3"));
+            sound->setLoops(100);
+            sound->play();
             state = 1;
             setMovie(":/images/ZombieAttack.gif");
         }
@@ -47,6 +50,9 @@ void BasicZombie::advance(int phase)
             setMovie(":/images/ZombieWalk1.gif");
         else
             setMovie(":/images/ZombieWalk2.gif");
+        sound->pause();
     }
     setX(x() - speed);
+
+
 }

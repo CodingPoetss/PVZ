@@ -17,6 +17,8 @@ public:
     int state;
     qreal speed;
     enum { Type = UserType + 2};
+    QMediaPlayer* sound = new QMediaPlayer();
+    QAudioOutput* audioOutput = new QAudioOutput();
     Zombie();
     ~Zombie() override;
     QRectF boundingRect() const override;

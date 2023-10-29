@@ -7,12 +7,15 @@ Zombie::Zombie()
     movie = head = nullptr;
     hp = atk = state = 0;
     speed = 0.0;
+    sound->setAudioOutput(audioOutput);
 }
 
 Zombie::~Zombie()
 {
     delete movie;
     delete head;
+    delete sound;
+    delete audioOutput;
 }
 
 QRectF Zombie::boundingRect() const

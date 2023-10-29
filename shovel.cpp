@@ -2,7 +2,8 @@
 
 Shovel::Shovel()
 {
-
+    sound->setAudioOutput(audioOutput);
+    sound_remove->setAudioOutput(audioOutput_remove);
 }
 
 QRectF Shovel::boundingRect() const
@@ -22,6 +23,9 @@ void Shovel::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     Q_UNUSED(event)
     setCursor(Qt::ArrowCursor);
+    sound->setSource(QUrl::fromLocalFile("qrc:/music/shovel.mp3"));
+    sound->play();
+
 }
 
 void Shovel::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
@@ -45,6 +49,8 @@ void Shovel::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     Q_UNUSED(event)
     setCursor(Qt::ArrowCursor);
+    sound_remove->setSource(QUrl::fromLocalFile("qrc:/music/plant1.mp3"));
+    sound_remove->play();
 }
 
 void Shovel::removePlant(QPointF pos)
@@ -56,4 +62,11 @@ void Shovel::removePlant(QPointF pos)
             delete item;
             return;
         }
+    sound_remove->setSource(QUrl::fromLocalFile("qrc:/music/plant1.mp3"));
+    sound_remove->play();
 }
+
+Shovel::~Shovel(){
+    delete sound;
+    delete audioOutput;
+};

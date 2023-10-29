@@ -117,6 +117,9 @@ void MainWindow::check()
             if (item->type() == Zombie::Type && item->x() < 200)
             {
                 scene->addPixmap(QPixmap(":/images/ZombiesWon.png"))->setPos(336, 92);
+                sound->pause();
+                sound->setSource(QUrl::fromLocalFile("qrc:/music/losemusic.mp3"));
+                sound->play();
                 scene->advance();
                 timer->stop();
                 return;
