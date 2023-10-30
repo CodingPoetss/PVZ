@@ -2,9 +2,9 @@
 #include "shop.h"
 
 const QMap<QString, int> Card::map = {{"SunFlower", 0}, {"Peashooter", 1}, {"CherryBomb", 2}, {"WallNut", 3},
-                                      {"SnowPea", 4}, {"PotatoMine", 5}, {"Repeater", 6}};
+                                      {"SnowPea", 4}, {"PotatoMine", 5}, {"CherryShooter", 6}};
 const QVector<QString> Card::name = {"SunFlower", "Peashooter", "CherryBomb", "WallNut",
-                                     "SnowPea", "PotatoMine", "Repeater"};
+                                     "SnowPea", "PotatoMine", "CherryShooter"};
 const QVector<int> Card::cost = {50, 100, 150, 50, 175, 25, 200};
 const QVector<int> Card::cool = {227, 227, 606, 606, 227, 606, 227};
 

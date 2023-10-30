@@ -8,7 +8,7 @@ BlastPea::BlastPea(int attack, bool flag)
     atk = attack;
     speed = 360 * 33 / 1000;
 
-    gif = new QMovie(snow ? ":/images/basketballsnow.gif" : ":/images/basketball.gif");
+    gif = new QMovie(snow ? ":/images/basketballsnow.gif" : ":/images/CherryBean.gif");
     gif->start();
 }
 

@@ -61,5 +61,8 @@
         <file>images/Xiucai.gif</file>
         <file>images/XiucaiEat.gif</file>
         <file>images/Walter.gif</file>
+        <file>images/CherryBean.gif</file>
+        <file>images/CherryShooter.gif</file>
+        <file>images/CherryShooter.png</file>
     </qresource>
 </RCC>
