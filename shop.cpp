@@ -66,7 +66,7 @@ void Shop::addPlant(QString s, QPointF pos)
     case 5:
         plant = new PotatoMine; break;
     case 6:
-        plant = new Repeater; break;
+        plant = new Cherryshooter; break;
     }
     plant->setPos(pos);
     scene()->addItem(plant);

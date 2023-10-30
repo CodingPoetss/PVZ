@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     }
 
     if(sound->isAvailable()){
-        std::cout<<"not availablr"<<std::endl;
+        std::cout<<"not available"<<std::endl;
     }else{
         std::cout<<"available"<<std::endl;
     }
