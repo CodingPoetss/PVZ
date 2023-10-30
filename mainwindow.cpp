@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-
+#include "iostream"
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     srand(uint(QTime(0,0,0).secsTo(QTime::currentTime())));
@@ -8,12 +8,29 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     QMediaPlayer* sound = new QMediaPlayer(this);
     QAudioOutput* audioOutput = new QAudioOutput(this);
     sound->setAudioOutput(audioOutput);
+    if(audioOutput->isMuted()){
+        std::cout<<"muted!!!!!!!!!!!!"<<std::endl;
+    }else{
+        std::cout<<"music is playing"<<std::endl;
+    }
 
+
+    if(sound->hasAudio()){
+        std::cout<<"no audio"<<std::endl;
+    }else{
+        std::cout<<"audio is playing"<<std::endl;
+    }
+
+    if(sound->isAvailable()){
+        std::cout<<"not availablr"<<std::endl;
+    }else{
+        std::cout<<"available"<<std::endl;
+    }
     // 设置音频文件的路径（如果位于资源文件中，请使用"qrc:"前缀）
     sound->setSource(QUrl::fromLocalFile("qrc:/music/Grazy Dave.wav"));
 
     // 设置音量
-    //player->setVolume(50); // 0-100，100 表示最大音量
+    audioOutput->setVolume(100); // 0-100，100 表示最大音量
 
     // 播放音频
     sound->play();
