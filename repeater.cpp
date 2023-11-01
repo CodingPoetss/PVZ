@@ -1,14 +1,14 @@
 #include "repeater.h"
 
-Repeater::Repeater()
+Cherryshooter::Cherryshooter()
 {
     atk = 25;
     hp = 300;
-    time = int(1.4 * 1000 / 33);
-    setMovie(":/images/Repeater.gif");
+    time = int(2.5 * 1000 / 33);
+    setMovie(":/images/CherryShooter.gif");
 }
 
-void Repeater::advance(int phase)
+void Cherryshooter::advance(int phase)
 {
     if (!phase)
         return;
@@ -21,20 +21,16 @@ void Repeater::advance(int phase)
         QList<QGraphicsItem *> items = collidingItems();
         if (!collidingItems().isEmpty())
         {
-            Pea *pea = new Pea(atk);
-            pea->setX(x() + 32);
-            pea->setY(y());
-            scene()->addItem(pea);
-            pea = new Pea(atk);
-            pea->setX(x() + 64);
-            pea->setY(y());
-            scene()->addItem(pea);
+            BlastPea *blastpea = new BlastPea(atk);
+            blastpea->setX(x() + 32);
+            blastpea->setY(y());
+            scene()->addItem(blastpea);
             return;
         }
     }
 }
 
-bool Repeater::collidesWithItem(const QGraphicsItem *other, Qt::ItemSelectionMode mode) const
+bool Cherryshooter::collidesWithItem(const QGraphicsItem *other, Qt::ItemSelectionMode mode) const
 {
     Q_UNUSED(mode)
     return other->type() == Zombie::Type && qFuzzyCompare(other->y(), y());

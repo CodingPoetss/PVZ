@@ -5,7 +5,7 @@ ScreenZombie::ScreenZombie()
     hp = 1370;
     atk = 100 * 33 / 1000;
     speed = 80.0 * 33 / 1000 / 4.7;
-    setMovie(":/images/ScreenZombieWalk.gif");
+    setMovie(":/images/Menjiang.gif");
 }
 
 void ScreenZombie::advance(int phase)
@@ -32,15 +32,21 @@ void ScreenZombie::advance(int phase)
         plant->hp -= atk;
         if (state != 1)
         {
+            sound->setSource(QUrl::fromLocalFile("qrc:/music/chomp.mp3"));
+            sound->setLoops(100);
+            sound->play();
             state = 1;
-            setMovie(":/images/ScreenZombieAttack.gif");
+            setMovie(":/images/Menjiang.gif");
         }
         return;
     }
     if (state)
     {
         state = 0;
-        setMovie(":/images/ScreenZombieWalk.gif");
+
+        setMovie(":/images/Menjiang.gif");
+        sound->pause();
+
     }
     setX(x() - speed);
 }

@@ -5,11 +5,14 @@ Plant::Plant()
 {
     movie = nullptr;
     atk = counter = state = time = 0;
+    sound->setAudioOutput(audioOutput);
 }
 
 Plant::~Plant()
 {
     delete movie;
+    delete sound;
+    delete audioOutput;
 }
 
 QRectF Plant::boundingRect() const
@@ -22,6 +25,12 @@ void Plant::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
     Q_UNUSED(option)
     Q_UNUSED(widget)
     painter->drawImage(boundingRect(), movie->currentImage());
+    if (!hasSoundPlayed) {
+        sound->setSource(QUrl::fromLocalFile("qrc:/music/plant1.mp3"));
+        sound->play();
+        hasSoundPlayed = true; // Set the flag
+    }
+
 }
 
 bool Plant::collidesWithItem(const QGraphicsItem *other, Qt::ItemSelectionMode mode) const

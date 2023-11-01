@@ -1,5 +1,15 @@
 <RCC>
     <qresource prefix="/">
         <file>music/Grazy Dave.wav</file>
+        <file>music/cherrybomb.mp3</file>
+        <file>music/chomp.mp3</file>
+        <file>music/buttonclick.mp3</file>
+        <file>music/frozen.mp3</file>
+        <file>music/losemusic.mp3</file>
+        <file>music/pause.mp3</file>
+        <file>music/plant1.mp3</file>
+        <file>music/points.mp3</file>
+        <file>music/shovel.mp3</file>
+        <file>music/splat1.mp3</file>
     </qresource>
 </RCC>

@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-
+#include "iostream"
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     srand(uint(QTime(0,0,0).secsTo(QTime::currentTime())));
@@ -8,16 +8,33 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     QMediaPlayer* sound = new QMediaPlayer(this);
     QAudioOutput* audioOutput = new QAudioOutput(this);
     sound->setAudioOutput(audioOutput);
+    if(audioOutput->isMuted()){
+        std::cout<<"muted!!!!!!!!!!!!"<<std::endl;
+    }else{
+        std::cout<<"music is playing"<<std::endl;
+    }
 
+
+    if(sound->hasAudio()){
+        std::cout<<"no audio"<<std::endl;
+    }else{
+        std::cout<<"audio is playing"<<std::endl;
+    }
+
+    if(sound->isAvailable()){
+        std::cout<<"not available"<<std::endl;
+    }else{
+        std::cout<<"available"<<std::endl;
+    }
     // 设置音频文件的路径（如果位于资源文件中，请使用"qrc:"前缀）
-    // sound->setSource(QUrl::fromLocalFile("D:/MyRepositories/Qt/PVZ-eb5aee6b2a2412c9e92fa2dd97e4ba2f4a5652b9/PVZ-eb5aee6b2a2412c9e92fa2dd97e4ba2f4a5652b9/images/Grazy Dave.wav"));
     sound->setSource(QUrl::fromLocalFile("qrc:/music/Grazy Dave.wav"));
 
     // 设置音量
-    //player->setVolume(50); // 0-100，100 表示最大音量
 
+    audioOutput->setVolume(100); // 0-100，100 表示最大音量
+  
     // 播放音频
-    //sound->play();
+    sound->play();
 
     // 连接信号槽以实现循环播放
     connect(sound, &QMediaPlayer::mediaStatusChanged, [=](QMediaPlayer::MediaStatus status) {
@@ -53,7 +70,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     view = new QGraphicsView(scene, this);
     view->resize(902, 602);
     view->setRenderHint(QPainter::Antialiasing);
-    view->setBackgroundBrush(QPixmap(":/images/Background.jpg"));
+    view->setBackgroundBrush(QPixmap(":/images/FutureBackground.jpg"));
     view->setCacheMode(QGraphicsView::CacheBackground);
     view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
     connect(timer, &QTimer::timeout, scene, &QGraphicsScene::advance);
@@ -118,6 +135,9 @@ void MainWindow::check()
             if (item->type() == Zombie::Type && item->x() < 200)
             {
                 scene->addPixmap(QPixmap(":/images/ZombiesWon.png"))->setPos(336, 92);
+                sound->pause();
+                sound->setSource(QUrl::fromLocalFile("qrc:/music/losemusic.mp3"));
+                sound->play();
                 scene->advance();
                 timer->stop();
                 return;

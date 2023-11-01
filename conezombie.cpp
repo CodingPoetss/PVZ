@@ -5,7 +5,7 @@ ConeZombie::ConeZombie()
     hp = 640;
     atk = 100 * 33 / 1000;
     speed = 80.0 * 33 / 1000 / 4.7;
-    setMovie(":/images/ConeZombieWalk.gif");
+    setMovie(":/images/BigPowerKing.gif");
 }
 
 void ConeZombie::advance(int phase)
@@ -32,15 +32,21 @@ void ConeZombie::advance(int phase)
         plant->hp -= atk;
         if (state != 1)
         {
+            sound->setSource(QUrl::fromLocalFile("qrc:/music/chomp.mp3"));
+            sound->setLoops(100);
+            sound->play();
             state = 1;
-            setMovie(":/images/ConeZombieAttack.gif");
+            setMovie(":/images/BigPowerKingEat.gif");
         }
         return;
     }
     if (state)
     {
         state = 0;
-        setMovie(":/images/ConeZombieWalk.gif");
+
+        setMovie(":/images/BigPowerKing.gif");
+        sound->pause();
+
     }
     setX(x() - speed);
 }

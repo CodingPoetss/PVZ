@@ -4,6 +4,7 @@ Button::Button(QMediaPlayer *s, QTimer *t)
 {
     sound = s;
     timer = t;
+    pauseSound->setAudioOutput(audioOutput);
 }
 
 QRectF Button::boundingRect() const
@@ -31,6 +32,9 @@ void Button::mousePressEvent(QGraphicsSceneMouseEvent *event)
     {
         if (timer->isActive())
         {
+
+            pauseSound->setSource(QUrl::fromLocalFile("qrc:/music/pause.mp3"));
+            pauseSound->play();
             sound->stop();
             timer->stop();
         }

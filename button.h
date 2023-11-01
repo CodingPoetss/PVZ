@@ -3,6 +3,7 @@
 
 #include <QTimer>
 #include <QMediaPlayer>
+#include <QAudioOutput>
 #include "other.h"
 
 class Button : public Other
@@ -15,6 +16,8 @@ public:
 private:
     QMediaPlayer *sound;
     QTimer *timer;
+    QMediaPlayer* pauseSound = new QMediaPlayer();
+    QAudioOutput* audioOutput = new QAudioOutput();
 };
 
 #endif // BUTTON_H

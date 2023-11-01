@@ -1,15 +1,12 @@
-#ifndef PEA_H
-#define PEA_H
+#ifndef BLASTPEA_H
+#define BLASTPEA_H
 
 #include "other.h"
 
-class Pea : public Other
+class BlastPea : public Other
 {
 public:
-    Pea(int attack = 0, bool flag = false);
-    ~Pea();
-    QMediaPlayer* sound = new QMediaPlayer();
-    QAudioOutput* audioOutput = new QAudioOutput();
+    BlastPea(int attack = 0, bool flag = false);
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     bool collidesWithItem(const QGraphicsItem *other, Qt::ItemSelectionMode mode) const override;
@@ -21,4 +18,4 @@ private:
     QMovie* gif;
 };
 
-#endif // PEA_H
+#endif // BLASTPEA_H

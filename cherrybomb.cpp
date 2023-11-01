@@ -1,4 +1,5 @@
 #include "cherrybomb.h"
+#include <QTimer>
 
 CherryBomb::CherryBomb()
 {
@@ -23,16 +24,24 @@ void CherryBomb::advance(int phase)
     {
         state = 1;
         setMovie(":/images/Boom.gif");
+
+        // 创建一个 QMediaPlayer 对象
+        sound->setSource(QUrl::fromLocalFile("qrc:/music/cherrybomb.mp3"));
+        sound->play();
+
         QList<QGraphicsItem *> items = collidingItems();
         foreach (QGraphicsItem *item, items)
         {
             Zombie *zombie = qgraphicsitem_cast<Zombie *>(item);
-            zombie->hp -= atk;
-            if (zombie->hp <= 0)
-            {
-                zombie->state = 3;
-                zombie->setMovie(":/images/Burn.gif");
-            }
+            zombie->setMovie(":/images/Burn.gif");
+            QTimer *timer = new QTimer;
+            timer->setSingleShot(true);
+            timer->setInterval(200); // 500毫秒（0.5秒）后停止效果
+            QObject::connect(timer, &QTimer::timeout, [=]() {
+                delete zombie;
+                delete timer; // 删除定时器
+            });
+            timer->start();
         }
     }
     else if (state == 1 && movie->currentFrameNumber() == movie->frameCount() - 1)
