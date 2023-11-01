@@ -15,7 +15,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
     // 设置音量
     //player->setVolume(50); // 0-100，100 表示最大音量
-    sound->
 
     // 播放音频
     //sound->play();
