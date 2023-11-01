@@ -30,8 +30,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     sound->setSource(QUrl::fromLocalFile("qrc:/music/Grazy Dave.wav"));
 
     // 设置音量
-    audioOutput->setVolume(100); // 0-100，100 表示最大音量
 
+    audioOutput->setVolume(100); // 0-100，100 表示最大音量
+  
     // 播放音频
     sound->play();
 
