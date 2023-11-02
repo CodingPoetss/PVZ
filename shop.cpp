@@ -2,7 +2,7 @@
 
 Shop::Shop()
 {
-    sun = 200;
+    sun = 1000;
     counter = 0;
     time = int(7.0 * 1000 / 33);
     Card *card = nullptr;

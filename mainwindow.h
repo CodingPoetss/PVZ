@@ -28,12 +28,15 @@ public:
     void addZombie();
     void check();
 private:
-    QMediaPlayer *sound;
+    // 创建一个 QMediaPlayer 对象
+    QMediaPlayer* sound = new QMediaPlayer(this);
+    QAudioOutput* audioOutput = new QAudioOutput(this);
     QTimer *timer;
     QGraphicsScene *scene;
     QGraphicsView *view;
     QLabel* gameOverLabel;
     QMovie* gif;
+
 };
 
 #endif // MAINWINDOW_H

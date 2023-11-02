@@ -1,36 +1,13 @@
 #include "mainwindow.h"
-#include "iostream"
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     srand(uint(QTime(0,0,0).secsTo(QTime::currentTime())));
-
-    // 创建一个 QMediaPlayer 对象
-    QMediaPlayer* sound = new QMediaPlayer(this);
-    QAudioOutput* audioOutput = new QAudioOutput(this);
     sound->setAudioOutput(audioOutput);
-    if(audioOutput->isMuted()){
-        std::cout<<"muted!!!!!!!!!!!!"<<std::endl;
-    }else{
-        std::cout<<"music is playing"<<std::endl;
-    }
 
-
-    if(sound->hasAudio()){
-        std::cout<<"no audio"<<std::endl;
-    }else{
-        std::cout<<"audio is playing"<<std::endl;
-    }
-
-    if(sound->isAvailable()){
-        std::cout<<"not available"<<std::endl;
-    }else{
-        std::cout<<"available"<<std::endl;
-    }
     // 设置音频文件的路径（如果位于资源文件中，请使用"qrc:"前缀）
     sound->setSource(QUrl::fromLocalFile("qrc:/music/Grazy Dave.wav"));
 
     // 设置音量
-
     audioOutput->setVolume(100); // 0-100，100 表示最大音量
   
     // 播放音频
@@ -153,12 +130,23 @@ void MainWindow::check()
                 //                sound->pause();
                 //                sound->setSource(QUrl::fromLocalFile("qrc:/music/losemusic.mp3"));
                 //                sound->play();
-                // 创建一个 QMediaPlayer 对象
-                //QMediaPlayer* sound_end = new QMediaPlayer();
-                //QAudioOutput* audioOutput_end = new QAudioOutput();
-                //sound_end->setAudioOutput(audioOutput_end);
-                //sound_end->setSource(QUrl::fromLocalFile("qrc:/music/losemusic.mp3"));
-                //sound_end->play();
+                //创建一个 QMediaPlayer 对象
+                audioOutput->setVolume(0);
+                sound->pause();
+                QMediaPlayer* sound_end1 = new QMediaPlayer();
+                QAudioOutput* audioOutput_end1 = new QAudioOutput();
+                sound_end1->setAudioOutput(audioOutput_end1);
+                sound_end1->setSource(QUrl::fromLocalFile("qrc:/music/menjiang.mp3"));
+                audioOutput_end1->setVolume(100);
+                sound_end1->play();
+
+
+                QMediaPlayer* sound_end2 = new QMediaPlayer();
+                QAudioOutput* audioOutput_end2 = new QAudioOutput();
+                sound_end2->setAudioOutput(audioOutput_end2);
+                sound_end2->setSource(QUrl::fromLocalFile("qrc:/music/yuanshenqidong.mp3"));
+                audioOutput_end2->setVolume(40);
+                sound_end2->play();
 
                 scene->advance();
                 timer->stop();

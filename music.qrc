@@ -11,5 +11,7 @@
         <file>music/points.mp3</file>
         <file>music/shovel.mp3</file>
         <file>music/splat1.mp3</file>
+        <file>music/menjiang.mp3</file>
+        <file>music/yuanshenqidong.mp3</file>
     </qresource>
 </RCC>
