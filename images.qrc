@@ -49,7 +49,6 @@
         <file>images/BasketBall .png</file>
         <file>images/BasketBallSnow.png</file>
         <file>images/FutureBackground.jpg</file>
-        <file>images/BigPowerKing.gif</file>
         <file>images/kunkun1.gif</file>
         <file>images/kunkun2.gif</file>
         <file>images/kunkun3.gif</file>
@@ -58,11 +57,13 @@
         <file>images/opstone.gif</file>
         <file>images/BigPowerKingEat.gif</file>
         <file>images/Menjiang.gif</file>
-        <file>images/Xiucai.gif</file>
         <file>images/XiucaiEat.gif</file>
         <file>images/Walter.gif</file>
         <file>images/CherryBean.gif</file>
         <file>images/CherryShooter.gif</file>
         <file>images/CherryShooter.png</file>
+        <file>images/BigPowerKing.gif</file>
+        <file>images/Xiucai.gif</file>
+        <file>images/opLaunch.gif</file>
     </qresource>
 </RCC>
