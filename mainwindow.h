@@ -32,6 +32,8 @@ private:
     QTimer *timer;
     QGraphicsScene *scene;
     QGraphicsView *view;
+    QLabel* gameOverLabel;
+    QMovie* gif;
 };
 
 #endif // MAINWINDOW_H

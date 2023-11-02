@@ -134,10 +134,32 @@ void MainWindow::check()
         foreach (QGraphicsItem *item, items)
             if (item->type() == Zombie::Type && item->x() < 200)
             {
-                scene->addPixmap(QPixmap(":/images/ZombiesWon.png"))->setPos(336, 92);
-                sound->pause();
-                sound->setSource(QUrl::fromLocalFile("qrc:/music/losemusic.mp3"));
-                sound->play();
+                // 创建 QMovie 对象并设置 GIF 文件
+                QMovie *gif = new QMovie(":/images/opLaunch.gif");
+                gif->setScaledSize(QSize(900, 600));
+
+                // 创建 QLabel 控件并设置 QMovie
+                QLabel *gameOverLabel = new QLabel();
+                gameOverLabel->setMovie(gif);
+
+                // 将 QLabel 添加到场景中
+                QGraphicsProxyWidget *proxyWidget = scene->addWidget(gameOverLabel);
+
+                // 设置 QLabel 的位置
+                proxyWidget->setPos(150, 0);
+
+                // 启动 GIF 播放
+                gif->start();
+                //                sound->pause();
+                //                sound->setSource(QUrl::fromLocalFile("qrc:/music/losemusic.mp3"));
+                //                sound->play();
+                // 创建一个 QMediaPlayer 对象
+                //QMediaPlayer* sound_end = new QMediaPlayer();
+                //QAudioOutput* audioOutput_end = new QAudioOutput();
+                //sound_end->setAudioOutput(audioOutput_end);
+                //sound_end->setSource(QUrl::fromLocalFile("qrc:/music/losemusic.mp3"));
+                //sound_end->play();
+
                 scene->advance();
                 timer->stop();
                 return;
